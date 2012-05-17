@@ -1,0 +1,3 @@
+[submodule "classes/phpcassa"]
+	path = classes/phpcassa
+	url = git://github.com/thobbs/phpcassa.git
