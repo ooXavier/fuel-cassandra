@@ -9,6 +9,51 @@ The [Apache Cassandra Project](http://cassandra.apache.org) develops a highly sc
 
 ## Quick Start
 
+### Add package in your FuelPHP application/website
+
+Get this package in you app
+
+    $ cd MYAPP/
+    $ git submodule add git://github.com/ooXavier/fuel-cassandra.git fuel/packages/cassandra
+    $ git submodule init
+    $ git submodule update
+    $ cd fuel/packages/cassandra/
+    $ git submodule init
+    $ git submodule update
+    $ cd ../../..
+    
+Then simply add `cassandra` to your config.php `always_loaded.packages` config option.
+
+    'always_load'  => array(
+        'packages'  => array(
+            // ...
+        'cassandra',
+        ),
+        // ...
+    
+### Set-up your Apache Cassandra server(s) connection
+
+Copy config file model into your application
+
+    $ cp fuel/packages/cassandra/config/cassandra.php fuel/app/config/
+    
+Edit the file to set-up the connection to your cassandra server installation. Example :
+
+    <?php
+    return array(
+        'path' => 'phpcassa',
+        'cassandra' => array(
+            'default' => array(
+                'keyspace'  => 'CineMQstaging1',
+                'servers' => array (
+                    '127.0.0.1:9160',
+                )
+            )
+        ),
+    );
+
+## Usage
+    
 ### Establishing a connection
 
     // Get a an new instance of configured nodes on a defined keyspace
